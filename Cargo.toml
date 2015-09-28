@@ -1,0 +1,8 @@
+[package]
+name = "tomlgen"
+version = "0.1.0"
+authors = ["markrendle <mark@markrendle.net>"]
+
+[dependencies]
+toml = "0.1.22"
+glob = "0.2.10"

@@ -1,0 +1,26 @@
+[root]
+name = "tomlgen"
+version = "0.1.0"
+dependencies = [
+ "glob 0.2.10 (registry+https://github.com/rust-lang/crates.io-index)",
+ "toml 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "glob"
+version = "0.2.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "rustc-serialize"
+version = "0.3.16"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "toml"
+version = "0.1.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "rustc-serialize 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
