@@ -31,8 +31,4 @@ fn main() {
             Err(e) => println!("{:?}", e)
         }
     }
-
-    // for argument in env::args() {
-    //     println!("{}", argument);
-    // }
 }
