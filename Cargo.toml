@@ -4,5 +4,6 @@ version = "0.1.0"
 authors = ["markrendle <mark@markrendle.net>"]
 
 [dependencies]
-toml = "0.1.22"
+rustc-serialize = "0.3.0"
 glob = "0.2.10"
+rustache = "0.0.1"
