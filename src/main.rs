@@ -3,11 +3,13 @@ extern crate rustc_serialize;
 extern crate rustache;
 
 use std::error::Error;
+use std::process;
 use std::fs::File;
 use std::path::Path;
 use std::io::prelude::*;
 use glob::glob;
 use rustc_serialize::json::Json;
+use std::env;
 
 fn load(path: &Path) -> String {
     let display = path.display();
@@ -34,9 +36,20 @@ fn read(path: &Path, tmpl: &String) {
 }
 
 fn main() {
-    let tmpl = load(Path::new("./sandbox/simple.tmpl"));
+    let args: Vec<String> = env::args().collect();
+    if args.len() != 3 {
+        println!("Usage: {} template dataPath", args[0]);
+        process::exit(1);
+    }
+    let tmpl = load(Path::new(&args[1]));
+    let mut data_path = args[2].clone();
+    if !data_path.ends_with("/") {
+        data_path.push('/');
+    }
+    data_path.push_str("**/*.json");
+    println!("{}", data_path);
 
-    for entry in glob("./sandbox/**/*.json").unwrap() {
+    for entry in glob(&data_path).unwrap() {
         match entry {
             Ok(path) => read(&path, &tmpl),
             Err(e) => println!("{:?}", e)
